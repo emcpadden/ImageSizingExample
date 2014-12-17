@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<style>
+			body {
+				font-family: sans-serif;
+				color: #333;
+				font-size: 12px;
+			}
+
+			.table {
+				display: table;
+				margin: 10px auto; 
+				width: 90%; 
+				height: 500px; 
+				table-layout: fixed;
+			}
+
+			.row {
+				display: table-row;
+			}
+
+			.cell {
+				display: table-cell;
+				width: 50%;
+				padding: 10px;
+			}
+
+			.image-container {
+				border: 1px dotted #999;
+			    display: table-cell;
+			    text-align: center;
+			    vertical-align: middle;
+    		}
+
+    		.image-container img {
+    			margin: 0 auto;
+			    vertical-align: middle;
+			    display: block;
+			    max-width: 100%;
+			    max-height: 100%;
+    		}
+
+			.size-100x50px {
+			    width: 100px;
+			    height: 50px;
+			}
+
+			.size-200x100px {
+			    width: 200px;
+			    height: 100px;
+			}
+
+			.size-100x200px {
+			    width: 100px;
+			    height: 200px;
+			}
+
+			.size-500x250px {
+			    width: 500px;
+			    height: 250px;
+			}
+
+			.size-250x500px {
+			    width: 250px;
+			    height: 500px;
+			}
+
+		</style>
+		<script type="text/javascript">
+			$(document).ready(
+				function () {
+					$(".sizeBtn").on('click', function() {
+						var size = $(this).data('size');
+						$('.image-container').removeClass('size-100x50px size-200x100px size-100x200px size-500x250px size-250x500px').addClass(size);
+						$('.containerSizeLabel').text($(this).text());
+					});
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<h1>Image Sizing Example</h1>
+		<h3>Sizing Images while maintaining the aspect ratio</h3>
+		<hr/>
+		<p>
+			Below shows an example of how to take an image and maintain its aspect ratio within 
+			a given container.  For this example, we will show the image in its actual size on
+			the left and on the right show the image in a smaller container which is constrained 
+			both in height and in width.  The image in the container will maintain its aspect ratio.
+		</p>
+		<p>
+			The radio buttons below simply change the class on the image container and the image on the right 
+			so that the image is sized (small, deium or large) and maintains its aspect ratio while centering it
+			both horizontally and vertically inside the image container.
+		</p>
+		<p>
+			<strong>
+				Container Size: 
+				<button class="sizeBtn" data-size="size-100x50px">100px x 50px</button>&nbsp;&nbsp;&nbsp;
+				<button class="sizeBtn" data-size="size-200x100px">200px x 100px</button>&nbsp;&nbsp;&nbsp;
+				<button class="sizeBtn" data-size="size-100x200px">100px x 200px</button>&nbsp;&nbsp;&nbsp;
+				<button class="sizeBtn" data-size="size-500x250px">500px x 250px</button>&nbsp;&nbsp;&nbsp;
+				<button class="sizeBtn" data-size="size-250x500px">250px x 500px</button>
+			</strong>
+		<p/>
+		<h3>Current Size: <span class="containerSizeLabel">200px x 100px</span></h3>
+		<div class="table">
+			<div class="row">
+				<div class="cell">
+					<img src="images/logo-uhc.png"/>
+				</div>
+				<div class="cell">
+					<div class="image-container">
+						<img src="images/logo-uhc.png"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="cell">
+					<img src="images/logo-mitsubishi.jpg"/>
+				</div>
+				<div class="cell">
+					<div class="image-container">
+						<img src="images/logo-mitsubishi.jpg"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="cell">
+					<img src="images/logo-tmobile.png"/>
+				</div>
+				<div class="cell">
+					<div class="image-container">
+						<img src="images/logo-tmobile.png"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="cell">
+					<img src="images/logo-toyota.jpg"/>
+				</div>
+				<div class="cell">
+					<div class="image-container">
+						<img src="images/logo-toyota.jpg"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
